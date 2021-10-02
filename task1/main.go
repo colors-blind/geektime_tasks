@@ -33,7 +33,7 @@ func WithServerHeader(h http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("--->WithServerHeader() request %#v", r.Header)
 		for key, value := range r.Header {
-			fmt.Printf("key is %#v value is %#v\n", key, value)
+			log.Printf("key is %#v value is %#v\n", key, value)
 			w.Header().Set(key, value[0])
 		}
 		h(w, r)
